@@ -1,6 +1,6 @@
 {
   "name": "reactor-ui-sidenav-demo",
-  "version": "0.13.3",
+  "version": "0.0.1",
   "description ": "extension of reactor-ui/sidenav",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext"
   },
   "dependencies": {
-    "react": "*"
+    "react": "^0.13.3"
+    "reactor-ui-sidenav-ext": "*"
   },
   "devDependencies": {
     "gulp": "*",
