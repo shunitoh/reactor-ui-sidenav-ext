@@ -32,6 +32,7 @@ $ npm install reactor-ui-sidenav-ext
 
 - https://github.com/wmira/reactor-ui#sidenav
 - http://git.io/vsk4t
+- https://github.com/shunitoh/reactor-ui-sidenav-ext/tree/master/demo
 
 ### Reference
 - https://github.com/wmira/reactor-ui
