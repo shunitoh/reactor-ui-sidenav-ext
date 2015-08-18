@@ -5,19 +5,19 @@
 
 ```javascript
 
-    var { SideNav, NavGroup, Nav } = require("reactor-ui/sidenav");
+    var { SideNav } = require("reactor-ui-sidenav-ext");
 
     var navi = [
-        { id: 'dashboard', icon: "fa fa-dashboard" , text: "Dashboard"},
-        { id: 'products', icon: "fa fa-cube", text: "Products" ,
+        { id: 'dashboard', icon: "fa fa-dashboard" , text: "Dashboard", options : { link : "/dashboard" } },
+        { id: 'products', icon: "fa fa-cube", text: "Products", options : { link : "/products" }
             navlist: [
-              { icon: 'fa fa-desktop', id: 'manage' ,text: "Manage Product" },
-              { icon: 'fa fa-cog', id: 'suppliers' ,text: "Suppliers" }
+              { icon: 'fa fa-desktop', id: 'manage' ,text: "Manage Product", options : { link : "/manage" } },
+              { icon: 'fa fa-cog', id: 'suppliers' ,text: "Suppliers", options : { link : "/suppliers" } }
             ]
         },
-        { id: 'inventory', icon: 'fa fa-database' ,text: "Inventory"},
-        { id: 'deliveries', icon: 'fa fa-truck' ,text: "Deliveries"},
-        { id: 'reports', icon: 'fa fa-bar-chart' ,text: "Reports" }
+        { id: 'inventory', icon: 'fa fa-database' ,text: "Inventory", options : { link : "/inventory" }},
+        { id: 'deliveries', icon: 'fa fa-truck' ,text: "Deliveries", options : { link : "/deliveries" }},
+        { id: 'reports', icon: 'fa fa-bar-chart' ,text: "Reports", options : { link : "/reports" } }
      ];
 
     React.render(<SideNav navs={navi}/>,document.getElementById('cont1'));
