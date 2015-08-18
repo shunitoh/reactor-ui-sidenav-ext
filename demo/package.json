@@ -12,7 +12,7 @@
     "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext"
   },
   "dependencies": {
-    "react": "^0.13.3"
+    "react": "^0.13.3",
     "reactor-ui-sidenav-ext": "*"
   },
   "devDependencies": {
