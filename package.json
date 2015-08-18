@@ -1,0 +1,31 @@
+{
+  "name": "reactor-ui-sidenav-ext",
+  "version": "1.0.0",
+  "description": "extends reactor-ui of sidenav",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext.git"
+  },
+  "dependencies": {
+    "classnames": "^1.2.0",
+    "object-assign": "^2.0.0",
+    "object-traverse": "^1.1.1",
+    "react": "^0.13.3"
+  },
+  "keywords": [
+    "react",
+    "reactor-ui",
+    "sidebar",
+    "sidenav"
+  ],
+  "author": "shunitoh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shunitoh/reactor-ui-sidenav-ext/issues"
+  },
+  "homepage": "https://github.com/shunitoh/reactor-ui-sidenav-ext#readme"
+}

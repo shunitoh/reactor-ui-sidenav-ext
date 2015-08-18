@@ -1,0 +1,92 @@
+/** Side Nav */
+.rui-snav-area {
+    width:165px;
+    overflow: hidden;
+    float: left;
+    background: #555;
+    color: #fff;
+}
+
+.rui-snav-grp {
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  padding: 8px 3px;
+  font-weight: bold;
+}
+.rui-snav-cgrp {
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  padding: 8px 3px;
+  font-weight: bold;
+}
+
+.rui-snav-item {
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  font-weight: bold;
+  padding: 8px 3px;
+}
+
+.rui-child-nav-group-item {
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  font-weight: bold;
+  padding: 8px 3px;
+}
+
+.rui-snav-active {
+  /*background: #2c3e50;*/
+  background: #333;
+  border-left: 4px solid #2ecc71;
+}
+.rui-snav-child-active {
+  /*background: #2c3e50;*/
+  background: #333;
+  border-left: 4px solid #2ecc71;
+  padding-left: 3px;
+}
+
+.rui-snav-item:hover {
+  /*background: #2c3e50;*/
+  background: #333;
+}
+.rui-child-nav-group-item:hover {
+  /*background: #2c3e50;*/
+  background: #333;
+}
+
+.rui-snav-grp:hover {
+  /*background: #2c3e50;*/
+  background: #333;
+}
+.rui-snav-items {
+  overflow: hidden;
+  transition: height 0.15s ease-out;
+  margin-left : 16px;
+}
+.rui-snav-grp-c > .rui-snav-items > .rui-snav-item {
+  padding-left: 3px;
+}
+
+.rui-snav-cgrp-c > .rui-snav-items > .rui-child-nav-group-item {
+  padding-left: 3px;
+}
+
+.rui-snav-active, .rui-snav-child-active {
+  border-left: 4px solid #2ecc71;
+}
+
+.rui-snav-cgrp-c>.rui-snav-items>.rui-child-nav-group-item > .rui-snav-active, .rui-snav-child-active {
+  border-left: 4px solid #0099CC;
+}
+
+.rui-snav-items > .rui-snav-item.rui-snav-active {
+  border-left: 4px solid #0099CC;
+}
+
+.rui-snav-items > .rui-child-nav-group-item.rui-snav-active {
+  border-left: 4px solid #FF6666;
+}
+
+
+/** End SideNav */

@@ -1,0 +1,87 @@
+[
+    {
+        "id"      : "color",
+        "options" : { "link" : "/applist"},
+        "icon"    : "fa fa-cubes",
+        "text"    : "color",
+        "active"  : false,
+        "navlist" : [
+            {
+                "id"      : "blue",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-cube",
+                "text"    : "blue",
+                "active"  : false
+            },
+            {
+                "id"      : "red",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-puzzle-piece",
+                "text"    : "red",
+                "active"  : false,
+                "navlist" : [
+                    {
+                        "id"      : "apple",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "apple",
+                        "active"  : false
+                    },
+                    {
+                        "id"      : "tomatoe",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "tomate",
+                        "active"  : false
+                    }
+                ]
+            },
+            {
+                "id"      : "yellow",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-line-chart",
+                "text"    : "yellow",
+                "active"  : false,
+                "navlist" : [
+                    {
+                        "id"      : "banana",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "banana",
+                        "active"  : false
+                    },
+                    {
+                        "id"      : "lemon",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "lemon",
+                        "active"  : false
+                    },
+                    {
+                        "id"      : "sunflower",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "sunflower",
+                        "active"  : false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id"      : "form",
+        "options" : { "link" : "/"},
+        "icon"    : "fa fa-share-alt",
+        "text"    : "form",
+        "active"  : false,
+        "navlist" : [
+            {
+                "id"      : "triangle",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-cube",
+                "text"    : "triangle",
+                "active"  : false
+            }
+        ]
+    }
+]

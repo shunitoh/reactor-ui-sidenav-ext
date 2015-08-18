@@ -1,0 +1,52 @@
+{
+  "name": "reactor-ui-sidenav-demo",
+  "version": "0.13.3",
+  "description ": "extension of reactor-ui/sidenav",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext"
+  },
+  "dependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-load-plugins": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-shell": "*",
+    "del": "*",
+    "run-sequence": "*",
+    "vinyl-source-stream": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "source": "*",
+    "express": "*",
+    "morgan": "*",
+    "underscore": "*",
+    "serve-favicon": "*",
+    "gulp-csscomb": "*",
+    "gulp-minify-css": "*",
+    "gulp-cssmin": "*",
+    "gulp-rename": "*",
+    "consolidate": "*"
+  },
+  "keywords": [
+    "react",
+    "reactor-ui",
+    "demo",
+    "sidenav",
+    "sidebar"
+  ],
+  "author": "shunitoh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shunitoh/reactor-ui-sidenav-ext/issues"
+  },
+  "homepage": "https://github.com/shunitoh/reactor-ui-sidenav-ext#readme"
+}
