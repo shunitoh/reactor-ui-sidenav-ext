@@ -11,7 +11,7 @@ var IconTextSchemeMixin = {
 
         var contentEls = [],
             propsIcon = this.props.icon,
-            propsText = this.props.text,
+            propsText = (this.props.words && this.props.words[this.props.text]) ? this.props.words[this.props.text] : this.props.text,
             icon,
             text,
             style = this.props.style; //style= it = icon text, ti , text icon, tbi text below icon
@@ -23,7 +23,11 @@ var IconTextSchemeMixin = {
             propsIcon = this.props.nav.icon;
         }
         if (!propsText && this.props.nav) {
-            propsText = this.props.nav.text;
+            if(this.props.words && this.props.words[this.props.nav.text]){
+                propsText = this.props.words[this.props.nav.text];
+            }else{
+                propsText = this.props.nav.text;
+            }
         }
 
         if (propsIcon) {

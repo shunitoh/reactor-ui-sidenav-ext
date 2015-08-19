@@ -47,7 +47,7 @@ var ChildNavGroup = React.createClass({
 
         if (this.props.nav) {
             return this.props.nav.navlist.map(function (nav) {
-                return React.createElement(Nav, _extends({ key : nav.id, selected: _this.state.selected, onClick: _this.onSubNavClick }, nav));
+                return React.createElement(Nav, _extends({ key : nav.id, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav));
             });
         } else {
             return this.props.children;

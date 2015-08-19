@@ -57,12 +57,12 @@ var NavGroup = React.createClass({
                 if (nav.navlist) {
                     return React.createElement(
                         ChildNavGroup, 
-                        { key : nav.id, selected: _this.state.selected, onClick: _this.onChildNavClick, anotherAction : _this.onSubNavClick, nav: nav }
+                        { key : nav.id, selected: _this.state.selected, onClick: _this.onChildNavClick, anotherAction : _this.onSubNavClick, nav: nav, words : _this.props.words }
                     );
                 } else {
                     return React.createElement(
                         Nav, 
-                        _extends({ key : nav.id, selected: _this.state.selected }, nav, { onClick: _this.onSubNavClick }, {group : nav.id})
+                        _extends({ key : nav.id, selected: _this.state.selected }, nav, { onClick: _this.onSubNavClick }, {group : nav.id}, {words : _this.props.words})
                     );
                 }
             });
