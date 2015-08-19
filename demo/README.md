@@ -23,6 +23,7 @@ http://shunitoh.github.io/reactor-ui-sidenav-ext/
     │   ├── styles
     │   │   └── rui-styles.css
     │   └── variables
+    |       ├── Words.json
     │       └── SideNav.json
     ├── favicon.ico
     └── index.html
