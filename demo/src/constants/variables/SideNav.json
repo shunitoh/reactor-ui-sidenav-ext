@@ -28,7 +28,7 @@
                         "active"  : false
                     },
                     {
-                        "id"      : "tomatoe",
+                        "id"      : "tomate",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "tomate",
