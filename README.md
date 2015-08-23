@@ -38,8 +38,8 @@ $ npm install reactor-ui-sidenav-ext
 - https://github.com/wmira/reactor-ui
 
 ### Version up
-- hide the tab
--- config example
-https://github.com/shunitoh/reactor-ui-sidenav-ext/blob/master/demo/src/constants/variables/SideNav.json
--- setting example
-https://raw.githubusercontent.com/shunitoh/reactor-ui-sidenav-ext/master/updated/0.02_add.function.png
+- hide the tab  
+config example
+https://github.com/shunitoh/reactor-ui-sidenav-ext/blob/master/demo/src/constants/variables/SideNav.json  
+- setting example  
+https://raw.githubusercontent.com/shunitoh/reactor-ui-sidenav-ext/master/updated/0.02_add.function.png  
