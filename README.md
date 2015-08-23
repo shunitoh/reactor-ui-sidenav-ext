@@ -39,7 +39,7 @@ $ npm install reactor-ui-sidenav-ext
 
 ### Version up
 - hide the tab  
-config example
+config file   
 https://github.com/shunitoh/reactor-ui-sidenav-ext/blob/master/demo/src/constants/variables/SideNav.json  
-- setting example  
+setting example  
 https://raw.githubusercontent.com/shunitoh/reactor-ui-sidenav-ext/master/updated/0.02_add.function.png  
