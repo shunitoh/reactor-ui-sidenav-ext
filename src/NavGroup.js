@@ -54,6 +54,9 @@ var NavGroup = React.createClass({
 
         if (this.props.nav) {
             return this.props.nav.navlist.map(function (nav) {
+                if(nav.active === false){
+                    return;
+                }
                 if (nav.navlist) {
                     return React.createElement(
                         ChildNavGroup, 

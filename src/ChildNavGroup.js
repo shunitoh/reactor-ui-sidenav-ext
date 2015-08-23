@@ -6,7 +6,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require("react");
-var Nav = require("./ChildNavGroupItem");
+var Nav = require("./ChildNav");
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
 var cn = require("classnames");
 var PureRenderMixin = require("react/addons").addons.PureRenderMixin;
@@ -47,6 +47,9 @@ var ChildNavGroup = React.createClass({
 
         if (this.props.nav) {
             return this.props.nav.navlist.map(function (nav) {
+                if(nav.active === false){
+                    return;
+                }
                 return React.createElement(Nav, _extends({ key : nav.id, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav));
             });
         } else {

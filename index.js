@@ -8,5 +8,5 @@ module.exports = {
     Nav: require("./src/Nav"),
     NavGroup: require("./src/NavGroup"),
     ChildNavGroup: require("./src/ChildNavGroup"),
-    ChildNavGroupItem: require("./src/ChildNavGroupItem")
+    ChildNav: require("./src/ChildNav")
 };

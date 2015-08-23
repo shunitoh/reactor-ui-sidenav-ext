@@ -4,14 +4,14 @@
         "options" : { "link" : "/applist"},
         "icon"    : "fa fa-cubes",
         "text"    : "color",
-        "active"  : false,
+        "active"  : true,
         "navlist" : [
             {
                 "id"      : "blue",
                 "options" : { "link" : "/"},
                 "icon"    : "fa fa-cube",
                 "text"    : "blue",
-                "active"  : false
+                "active"  : true
             },
             {
                 "id"      : "red",
@@ -25,14 +25,14 @@
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "apple",
-                        "active"  : false
+                        "active"  : true
                     },
                     {
                         "id"      : "tomate",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "tomate",
-                        "active"  : false
+                        "active"  : true
                     }
                 ]
             },
@@ -41,28 +41,28 @@
                 "options" : { "link" : "/"},
                 "icon"    : "fa fa-line-chart",
                 "text"    : "yellow",
-                "active"  : false,
+                "active"  : true,
                 "navlist" : [
                     {
                         "id"      : "banana",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "banana",
-                        "active"  : false
+                        "active"  : true
                     },
                     {
                         "id"      : "lemon",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "lemon",
-                        "active"  : false
+                        "active"  : true
                     },
                     {
                         "id"      : "sunflower",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
                         "text"    : "sunflower",
-                        "active"  : false
+                        "active"  : true
                     }
                 ]
             }
@@ -73,7 +73,7 @@
         "options" : { "link" : "/"},
         "icon"    : "fa fa-share-alt",
         "text"    : "form",
-        "active"  : false,
+        "active"  : true,
         "navlist" : [
             {
                 "id"      : "triangle",

@@ -9,7 +9,7 @@ var React = require("react");
 
 var NavGroup = require("./NavGroup");
 var Nav = require("./Nav");
-//var lodash = require("lodash");
+
 /**
  * The SideNav is a Side Navigation component duH!
  *
@@ -33,6 +33,10 @@ var SideNav = React.createClass({
         var words = (this.props.words) ? this.props.words : {};
         return this.props.navs.map(function (navkind) {
             //nav kind could have a navlist, which we assume it contains a group of navs options
+            if(navkind.active === false){
+                return;
+            }
+
             if (navkind.navlist) {
                 var selected = {
                     id    : _this.state.selected.id,
