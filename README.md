@@ -15,7 +15,7 @@ http://shunitoh.github.io/reactor-ui-sidenav-ext/
 ├── LICENSE
 └── src
     ├── ChildNavGroup.js
-    ├── ChildNavGroupItem.js
+    ├── ChildNav.js
     ├── IconTextSchemeMixin.js
     ├── Nav.js
     ├── NavGroup.js
