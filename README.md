@@ -42,7 +42,7 @@ $ npm install reactor-ui-sidenav-ext
 config file   
 https://github.com/shunitoh/reactor-ui-sidenav-ext/blob/master/demo/src/constants/variables/SideNav.json  
 setting example  
-https://raw.githubusercontent.com/shunitoh/reactor-ui-sidenav-ext/master/updated/0.0.3_add.function.png
+https://raw.githubusercontent.com/shunitoh/reactor-ui-sidenav-ext/master/updated/0.0.3_add.function.png  
 - pre-selected  
 demo file  
 https://github.com/shunitoh/reactor-ui-sidenav-ext/blob/master/demo/src/components/App.jsx  
