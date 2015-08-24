@@ -50,7 +50,7 @@ var ChildNavGroup = React.createClass({
                 if(nav.active === false){
                     return;
                 }
-                return React.createElement(Nav, _extends({ key : nav.id, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav));
+                return React.createElement(Nav, _extends({ key : nav.id, selectedId : _this.props.selectedId, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav));
             });
         } else {
             return this.props.children;
@@ -95,9 +95,25 @@ var ChildNavGroup = React.createClass({
         var groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": this.state.active });
         var style = {};
         if (this.state.collapsed) {
-            style["height"] = this.__computedHeight;
+            var cloned = this.refs.cont.getDOMNode().cloneNode(true);
+            if(cloned.clientHeight === 'auto'){
+                style["height"] = 'auto';//this.__computedHeight;
+            }else{
+                style["height"] = 0;
+            }
         } else {
-            style["height"] = 0;
+            if(existCheckByNavId(this.props.nav, this.props.selected.id)){
+                style["height"] = 'auto';
+            }else{
+                style["height"] = 0;
+            }
+        }
+
+        if(this.props.selectedId){
+            style["height"]     = 'auto';
+            if(existCheckByNavId(this.props.nav, this.props.selectedId)){
+                groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": true });
+            }
         }
 
         return React.createElement(

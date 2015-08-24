@@ -14,11 +14,11 @@ export default class App extends React.Component {
 
     render() {
         console.log('App.render');
+        var selectedId = 'lemon';
         return (
             <div className="rui-snav-area">
-                <SideNav navs={SideNavData} words={WordsData} onSelection={this.onSelection.bind(this)}/>
+                <SideNav navs={SideNavData} words={WordsData} onSelection={this.onSelection.bind(this)} selectedId={selectedId}/>
             </div>
         );
     }
 }
-
