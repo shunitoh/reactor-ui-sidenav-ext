@@ -34936,11 +34936,10 @@ var App = (function (_React$Component) {
         key: 'render',
         value: function render() {
             console.log('App.render');
-            var selectedId = 'lemon';
             return _react2['default'].createElement(
                 'div',
                 { className: 'rui-snav-area' },
-                _react2['default'].createElement(_reactorUiSidenavExt.SideNav, { navs: _constantsVariablesSideNavJson2['default'], words: _constantsVariablesWordsJson2['default'], onSelection: this.onSelection.bind(this), selectedId: selectedId })
+                _react2['default'].createElement(_reactorUiSidenavExt.SideNav, { navs: _constantsVariablesSideNavJson2['default'], words: _constantsVariablesWordsJson2['default'], onSelection: this.onSelection.bind(this) })
             );
         }
     }]);
