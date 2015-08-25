@@ -136,6 +136,8 @@ var NavGroup = React.createClass({
             style["height"]     = 'auto';
             if(existCheckByNavId(this.props.nav, this.props.selectedId)){
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": true});
+            }else{
+                groupclassName  = cn("rui-snav-grp", { "rui-snav-active": false});
             }
         }
 

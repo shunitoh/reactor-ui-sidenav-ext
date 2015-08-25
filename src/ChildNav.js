@@ -45,6 +45,8 @@ var ChildNav = React.createClass({
         if(this.props.selectedId){
             if(this.props.selectedId === this.props.id){
                 classNames = cn("rui-child-nav-group-item", {"rui-snav-active": true});
+            }else{
+                classNames = cn("rui-child-nav-group-item", {"rui-snav-active": false});
             }
         }
 

@@ -45,6 +45,8 @@ var Nav = React.createClass({
         if(this.props.selectedId){
             if(this.props.selectedId === this.props.id){
                 classNames = cn("rui-snav-item", {"rui-snav-active": true});
+            }else{
+                classNames = cn("rui-snav-item", {"rui-snav-active": false});
             }
         }
 
