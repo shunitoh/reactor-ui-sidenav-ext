@@ -34421,15 +34421,7 @@ var ChildNavGroup = React.createClass({
 
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
-        if (!this.__computedHeight) {
-            var cloned = this.refs.cont.getDOMNode().cloneNode(true);
-            cloned.style.position = "absolute";
-            cloned.style.left = "-9999px";
-            cloned.style.height = "auto";
-            document.body.appendChild(cloned);
-            this.__computedHeight = cloned.clientHeight;
-            document.body.removeChild(cloned);
-        }
+        this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
     },
 
     render: function render() {
@@ -34437,11 +34429,10 @@ var ChildNavGroup = React.createClass({
         var groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": this.state.active });
         var style = {};
         if (this.state.collapsed) {
-            var cloned = this.refs.cont.getDOMNode().cloneNode(true);
-            if(cloned.clientHeight === 'auto'){
-                style["height"] = 'auto';//this.__computedHeight;
-            }else{
+            if(this.cloned.clientHeight === 0){
                 style["height"] = 0;
+            }else{
+                style["height"] = 'auto';
             }
         } else {
             if(existCheckByNavId(this.props.nav, this.props.selected.id)){
@@ -34713,15 +34704,7 @@ var NavGroup = React.createClass({
 
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
-        if (!this.__computedHeight) {
-            var cloned = this.refs.cont.getDOMNode().cloneNode(true);
-            cloned.style.position = "absolute";
-            cloned.style.left = "-9999px";
-            cloned.style.height = "auto";
-            document.body.appendChild(cloned);
-            this.__computedHeight = cloned.clientHeight;
-            document.body.removeChild(cloned);
-        }
+        this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
     },
 
     render: function render() {
@@ -34729,11 +34712,10 @@ var NavGroup = React.createClass({
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-grp", { "rui-snav-active": this.state.active });
         if (this.state.collapsed) {
-            var cloned = this.refs.cont.getDOMNode().cloneNode(true);
-            if(cloned.clientHeight === 'auto'){
-                style["height"] = 'auto';//this.__computedHeight;
-            }else{
+            if(this.cloned.clientHeight === 0){
                 style["height"] = 0;
+            }else{
+                style["height"] = 'auto';
             }
         } else {
             if(existCheckByNavId(this.props.nav, this.props.selected.id)){
@@ -34936,10 +34918,11 @@ var App = (function (_React$Component) {
         key: 'render',
         value: function render() {
             console.log('App.render');
+            var selectedId = 'lemon';
             return _react2['default'].createElement(
                 'div',
                 { className: 'rui-snav-area' },
-                _react2['default'].createElement(_reactorUiSidenavExt.SideNav, { navs: _constantsVariablesSideNavJson2['default'], words: _constantsVariablesWordsJson2['default'], onSelection: this.onSelection.bind(this) })
+                _react2['default'].createElement(_reactorUiSidenavExt.SideNav, { navs: _constantsVariablesSideNavJson2['default'], words: _constantsVariablesWordsJson2['default'], onSelection: this.onSelection.bind(this), selectedId: selectedId })
             );
         }
     }]);
