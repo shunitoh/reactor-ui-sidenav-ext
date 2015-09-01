@@ -34325,6 +34325,8 @@ var ChildNav = React.createClass({
         if(this.props.selectedId){
             if(this.props.selectedId === this.props.id){
                 classNames = cn("rui-child-nav-group-item", {"rui-snav-active": true});
+            }else{
+                classNames = cn("rui-child-nav-group-item", {"rui-snav-active": false});
             }
         }
 
@@ -34422,36 +34424,48 @@ var ChildNavGroup = React.createClass({
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
         this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
+        if(this.props.selectedId){
+            this.setState({ collapsed: !this.state.collapsed });
+        }
     },
 
     render: function render() {
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": this.state.active });
+        var groupclassNameByClicked = cn("rui-snav-cgrp-c", { "rui-snav-child-c-active": this.state.active });
         var style = {};
         if (this.state.collapsed) {
+            style["height"] = 'auto';
+            /*
             if(this.cloned.clientHeight === 0){
                 style["height"] = 0;
             }else{
                 style["height"] = 'auto';
             }
+            */
         } else {
+            style["height"] = 0;
+            /*
             if(existCheckByNavId(this.props.nav, this.props.selected.id)){
                 style["height"] = 'auto';
             }else{
                 style["height"] = 0;
             }
+            */
         }
 
         if(this.props.selectedId){
             style["height"]     = 'auto';
             if(existCheckByNavId(this.props.nav, this.props.selectedId)){
                 groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": true });
+            }else{
+                groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": false });
             }
         }
 
         return React.createElement(
             "div",
-            { className: "rui-snav-cgrp-c" },
+            { className: groupclassNameByClicked },
             React.createElement(
                 "div",
                 { onClick: this.onClick, className: groupclassName },
@@ -34576,6 +34590,8 @@ var Nav = React.createClass({
         if(this.props.selectedId){
             if(this.props.selectedId === this.props.id){
                 classNames = cn("rui-snav-item", {"rui-snav-active": true});
+            }else{
+                classNames = cn("rui-snav-item", {"rui-snav-active": false});
             }
         }
 
@@ -34705,37 +34721,50 @@ var NavGroup = React.createClass({
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
         this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
+        if(this.props.selectedId){
+            this.setState({ collapsed: !this.state.collapsed });
+        }
+ 
     },
 
     render: function render() {
         var style = {};
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-grp", { "rui-snav-active": this.state.active });
+        var groupclassNameByClicked = cn("rui-snav-grp-c", { "rui-snav-c-active": this.state.active });
         if (this.state.collapsed) {
+            style["height"] = 'auto';
+            /*
             if(this.cloned.clientHeight === 0){
                 style["height"] = 0;
             }else{
                 style["height"] = 'auto';
             }
+            */
         } else {
+            style["height"] = 0;
+            /*
             if(existCheckByNavId(this.props.nav, this.props.selected.id)){
                 style["height"] = 'auto';
             }else{
                 style["height"] = 0;
             }
+            */
         }
 
         if(this.props.selectedId){
             style["height"]     = 'auto';
             if(existCheckByNavId(this.props.nav, this.props.selectedId)){
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": true});
+            }else{
+                groupclassName  = cn("rui-snav-grp", { "rui-snav-active": false});
             }
         }
 
 
         return React.createElement(
             "div",
-            { className: "rui-snav-grp-c" },
+            { className: groupclassNameByClicked },
             React.createElement(
                 "div",
                 { onClick: this.onClick, className: groupclassName },
