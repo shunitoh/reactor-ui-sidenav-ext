@@ -111,25 +111,21 @@ var NavGroup = React.createClass({
 
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
-        this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
+        if(this.props.selectedId){
+            this.setState({ collapsed: !this.state.collapsed });
+        }
+ 
     },
 
     render: function render() {
         var style = {};
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-grp", { "rui-snav-active": this.state.active });
+        var groupclassNameByClicked = cn("rui-snav-grp-c", { "rui-snav-grp-c-active": this.state.active });
         if (this.state.collapsed) {
-            if(this.cloned.clientHeight === 0){
-                style["height"] = 0;
-            }else{
-                style["height"] = 'auto';
-            }
+            style["height"] = 'auto';
         } else {
-            if(existCheckByNavId(this.props.nav, this.props.selected.id)){
-                style["height"] = 'auto';
-            }else{
-                style["height"] = 0;
-            }
+            style["height"] = 0;
         }
 
         if(this.props.selectedId){
@@ -144,7 +140,7 @@ var NavGroup = React.createClass({
 
         return React.createElement(
             "div",
-            { className: "rui-snav-grp-c" },
+            { className: groupclassNameByClicked },
             React.createElement(
                 "div",
                 { onClick: this.onClick, className: groupclassName },
