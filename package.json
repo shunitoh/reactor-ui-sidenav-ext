@@ -1,6 +1,6 @@
 {
   "name": "reactor-ui-sidenav-ext",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "extends reactor-ui of sidenav",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "react",
     "reactor-ui",
     "sidebar",
-    "sidenav"
+    "sidenav",
+    "react-component"
   ],
   "author": "shunitoh",
   "license": "MIT",
