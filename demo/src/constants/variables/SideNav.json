@@ -1,7 +1,7 @@
 [
     {
         "id"      : "color",
-        "options" : { "link" : "/applist"},
+        "options" : { "link" : "/"},
         "icon"    : "fa fa-cubes",
         "text"    : "color",
         "active"  : true,
@@ -51,10 +51,10 @@
                         "active"  : true
                     },
                     {
-                        "id"      : "lemon",
+                        "id"      : "yuzu",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
-                        "text"    : "lemon",
+                        "text"    : "yuzu",
                         "active"  : true
                     },
                     {
@@ -65,7 +65,31 @@
                         "active"  : true
                     }
                 ]
+            },
+            {
+                "id"      : "green",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-line-chart",
+                "text"    : "green",
+                "active"  : true,
+                "navlist" : [
+                    {
+                        "id"      : "watermelon",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "watermelon",
+                        "active"  : true
+                    },
+                    {
+                        "id"      : "cabbage",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "cabbage",
+                        "active"  : true
+                    }
+                ]
             }
+
         ]
     },
     {
@@ -81,6 +105,38 @@
                 "icon"    : "fa fa-cube",
                 "text"    : "triangle",
                 "active"  : false
+            }
+        ]
+    },
+    {
+        "id"      : "Smell",
+        "options" : { "link" : "/"},
+        "icon"    : "fa fa-cubes",
+        "text"    : "Smell",
+        "active"  : true,
+        "navlist" : [
+            {
+                "id"      : "sweet",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-cube",
+                "text"    : "sweet",
+                "active"  : true
+            },
+            {
+                "id"      : "sour",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-puzzle-piece",
+                "text"    : "sour",
+                "active"  : true,
+                "navlist" : [
+                    {
+                        "id"      : "lemon",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "lemon",
+                        "active"  : true
+                    }
+                ]
             }
         ]
     }

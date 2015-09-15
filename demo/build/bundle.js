@@ -34423,7 +34423,6 @@ var ChildNavGroup = React.createClass({
 
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
-        this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
         if(this.props.selectedId){
             this.setState({ collapsed: !this.state.collapsed });
         }
@@ -34432,26 +34431,16 @@ var ChildNavGroup = React.createClass({
     render: function render() {
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": this.state.active });
-        var groupclassNameByClicked = cn("rui-snav-cgrp-c", { "rui-snav-child-c-active": this.state.active });
+        var groupclassNameByClicked = cn("rui-snav-cgrp-c", { "rui-snav-cgrp-c-active": this.state.active });
         var style = {};
         if (this.state.collapsed) {
             style["height"] = 'auto';
-            /*
-            if(this.cloned.clientHeight === 0){
-                style["height"] = 0;
-            }else{
-                style["height"] = 'auto';
-            }
-            */
         } else {
             style["height"] = 0;
-            /*
-            if(existCheckByNavId(this.props.nav, this.props.selected.id)){
-                style["height"] = 'auto';
-            }else{
-                style["height"] = 0;
-            }
-            */
+        }
+
+        if (! existCheckByNavId(this.props.nav, this.props.selected.id)) {
+            style["height"] = 0;
         }
 
         if(this.props.selectedId){
@@ -34460,6 +34449,7 @@ var ChildNavGroup = React.createClass({
                 groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": true });
             }else{
                 groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": false });
+                style["height"] = 0;
             }
         }
 
@@ -34661,7 +34651,7 @@ var NavGroup = React.createClass({
  
     buildChildren: function buildChildren() {
         var _this = this;
-
+        console.log('NavGroup.buildChildren.this',this);
         if (this.props.nav) {
             return this.props.nav.navlist.map(function (nav) {
                 if(nav.active === false){
@@ -34720,7 +34710,6 @@ var NavGroup = React.createClass({
 
     componentDidMount: function componentDidMount() {
         //we cant transition 0 height to auto height.. so below is the result
-        this.cloned = this.refs.cont.getDOMNode().cloneNode(true);
         if(this.props.selectedId){
             this.setState({ collapsed: !this.state.collapsed });
         }
@@ -34731,25 +34720,15 @@ var NavGroup = React.createClass({
         var style = {};
         var itemsClassnames = cn("rui-snav-items");
         var groupclassName  = cn("rui-snav-grp", { "rui-snav-active": this.state.active });
-        var groupclassNameByClicked = cn("rui-snav-grp-c", { "rui-snav-c-active": this.state.active });
+        var groupclassNameByClicked = cn("rui-snav-grp-c", { "rui-snav-grp-c-active": this.state.active });
         if (this.state.collapsed) {
             style["height"] = 'auto';
-            /*
-            if(this.cloned.clientHeight === 0){
-                style["height"] = 0;
-            }else{
-                style["height"] = 'auto';
-            }
-            */
         } else {
             style["height"] = 0;
-            /*
-            if(existCheckByNavId(this.props.nav, this.props.selected.id)){
-                style["height"] = 'auto';
-            }else{
-                style["height"] = 0;
-            }
-            */
+        }
+
+        if (! existCheckByNavId(this.props.nav, this.props.selected.id)) {
+            style["height"] = 0;
         }
 
         if(this.props.selectedId){
@@ -34758,6 +34737,7 @@ var NavGroup = React.createClass({
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": true});
             }else{
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": false});
+                style["height"] = 0;
             }
         }
 
@@ -34814,6 +34794,7 @@ var SideNav = React.createClass({
 
     buildFromSettings: function buildFromSettings() {
         var _this = this;
+        console.log('buildFromSettings.this', this);
         var words = (this.props.words) ? this.props.words : {};
         return this.props.navs.map(function (navkind) {
             //nav kind could have a navlist, which we assume it contains a group of navs options
@@ -34965,7 +34946,7 @@ module.exports = exports['default'];
 module.exports=[
     {
         "id"      : "color",
-        "options" : { "link" : "/applist"},
+        "options" : { "link" : "/"},
         "icon"    : "fa fa-cubes",
         "text"    : "color",
         "active"  : true,
@@ -35015,10 +34996,10 @@ module.exports=[
                         "active"  : true
                     },
                     {
-                        "id"      : "lemon",
+                        "id"      : "yuzu",
                         "options" : { "link" : "/"},
                         "icon"    : "fa fa-circle-o",
-                        "text"    : "lemon",
+                        "text"    : "yuzu",
                         "active"  : true
                     },
                     {
@@ -35029,7 +35010,31 @@ module.exports=[
                         "active"  : true
                     }
                 ]
+            },
+            {
+                "id"      : "green",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-line-chart",
+                "text"    : "green",
+                "active"  : true,
+                "navlist" : [
+                    {
+                        "id"      : "watermelon",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "watermelon",
+                        "active"  : true
+                    },
+                    {
+                        "id"      : "cabbage",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "cabbage",
+                        "active"  : true
+                    }
+                ]
             }
+
         ]
     },
     {
@@ -35045,6 +35050,38 @@ module.exports=[
                 "icon"    : "fa fa-cube",
                 "text"    : "triangle",
                 "active"  : false
+            }
+        ]
+    },
+    {
+        "id"      : "Smell",
+        "options" : { "link" : "/"},
+        "icon"    : "fa fa-cubes",
+        "text"    : "Smell",
+        "active"  : true,
+        "navlist" : [
+            {
+                "id"      : "sweet",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-cube",
+                "text"    : "sweet",
+                "active"  : true
+            },
+            {
+                "id"      : "sour",
+                "options" : { "link" : "/"},
+                "icon"    : "fa fa-puzzle-piece",
+                "text"    : "sour",
+                "active"  : true,
+                "navlist" : [
+                    {
+                        "id"      : "lemon",
+                        "options" : { "link" : "/"},
+                        "icon"    : "fa fa-circle-o",
+                        "text"    : "lemon",
+                        "active"  : true
+                    }
+                ]
             }
         ]
     }

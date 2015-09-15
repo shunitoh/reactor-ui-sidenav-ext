@@ -95,12 +95,17 @@ var ChildNavGroup = React.createClass({
             style["height"] = 0;
         }
 
+        if (! existCheckByNavId(this.props.nav, this.props.selected.id)) {
+            style["height"] = 0;
+        }
+
         if(this.props.selectedId){
             style["height"]     = 'auto';
             if(existCheckByNavId(this.props.nav, this.props.selectedId)){
                 groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": true });
             }else{
                 groupclassName  = cn("rui-snav-cgrp", { "rui-snav-child-active": false });
+                style["height"] = 0;
             }
         }
 
