@@ -52,7 +52,6 @@ var NavGroup = React.createClass({
  
     buildChildren: function buildChildren() {
         var _this = this;
-
         if (this.props.nav) {
             return this.props.nav.navlist.map(function (nav) {
                 if(nav.active === false){
@@ -128,12 +127,17 @@ var NavGroup = React.createClass({
             style["height"] = 0;
         }
 
+        if (! existCheckByNavId(this.props.nav, this.props.selected.id)) {
+            style["height"] = 0;
+        }
+
         if(this.props.selectedId){
             style["height"]     = 'auto';
             if(existCheckByNavId(this.props.nav, this.props.selectedId)){
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": true});
             }else{
                 groupclassName  = cn("rui-snav-grp", { "rui-snav-active": false});
+                style["height"] = 0;
             }
         }
 
