@@ -25,7 +25,7 @@ var SideNav = React.createClass({
     displayName: "SideNav",
 
     getInitialState: function getInitialState() {
-        return { selected: { id: this.props.selected } };
+        return { selected: { id: this.props.selectedId } };
     },
 
     buildFromSettings: function buildFromSettings() {
