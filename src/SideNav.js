@@ -44,12 +44,12 @@ var SideNav = React.createClass({
                 };
                 return React.createElement(
                     NavGroup,
-                    { key : navkind.id, id : navkind.id, selectedId : _this.props.selectedId, selected: selected, onClick: _this.onSubNavClick, anotherAction : _this.onClick, nav: navkind, words : words }
+                    { key : navkind.id, id : navkind.id, selectedId : _this.state.selected.id, selected: selected, onClick: _this.onSubNavClick, anotherAction : _this.onClick, nav: navkind, words : words }
                 );
             } else {
                 return React.createElement(
                     Nav,
-                    _extends( {key : navkind.id}, {id : navkind.id}, {selectedId : _this.props.selectedId}, {selected: _this.state.selected }, navkind, { onClick: _this.onClick }, {group : navkind.id}, {words : words})
+                    _extends( {key : navkind.id}, {id : navkind.id}, {selectedId : _this.state.selected.id}, {selected: _this.state.selected }, navkind, { onClick: _this.onClick }, {group : navkind.id}, {words : words})
                 );
             }
         });
