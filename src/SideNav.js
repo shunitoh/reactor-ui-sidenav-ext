@@ -55,19 +55,19 @@ var SideNav = React.createClass({
         });
     },
 
-    onSubNavClick: function onSubNavClick(group, child, options) {
-        if(this.props.selectedId){
-            delete(this.props.selectedId);
+    componentWillReceiveProps : function(nextProps) {
+        if(nextProps !== undefined) {
+            this.setState({selected: { id: nextProps.selectedId }});
         }
+    },
+
+    onSubNavClick: function onSubNavClick(group, child, options) {
         var selection = { group: group, id: child, options : options};
         this.setState({ selected: selection });
         this.dispatchSelection(selection);
     },
 
     onClick: function onClick(id, options) {
-        if(this.props.selectedId){
-            delete(this.props.selectedId);
-        }
         var selection = { id: id, options : options };
         this.setState({ selected: selection });
         this.dispatchSelection(selection);
