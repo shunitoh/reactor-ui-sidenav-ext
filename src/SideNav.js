@@ -25,7 +25,7 @@ var SideNav = React.createClass({
     displayName: "SideNav",
 
     getInitialState: function getInitialState() {
-        return { selected: { id: this.props.selected } };
+        return { selected: { id: this.props.selectedId } };
     },
 
     buildFromSettings: function buildFromSettings() {
@@ -44,30 +44,30 @@ var SideNav = React.createClass({
                 };
                 return React.createElement(
                     NavGroup,
-                    { key : navkind.id, id : navkind.id, selectedId : _this.props.selectedId, selected: selected, onClick: _this.onSubNavClick, anotherAction : _this.onClick, nav: navkind, words : words }
+                    { key : navkind.id, id : navkind.id, selectedId : _this.state.selected.id, selected: selected, onClick: _this.onSubNavClick, anotherAction : _this.onClick, nav: navkind, words : words }
                 );
             } else {
                 return React.createElement(
                     Nav,
-                    _extends( {key : navkind.id}, {id : navkind.id}, {selectedId : _this.props.selectedId}, {selected: _this.state.selected }, navkind, { onClick: _this.onClick }, {group : navkind.id}, {words : words})
+                    _extends( {key : navkind.id}, {id : navkind.id}, {selectedId : _this.state.selected.id}, {selected: _this.state.selected }, navkind, { onClick: _this.onClick }, {group : navkind.id}, {words : words})
                 );
             }
         });
     },
 
-    onSubNavClick: function onSubNavClick(group, child, options) {
-        if(this.props.selectedId){
-            delete(this.props.selectedId);
+    componentWillReceiveProps : function(nextProps) {
+        if(nextProps !== undefined) {
+            this.setState({selected: { id: nextProps.selectedId }});
         }
+    },
+
+    onSubNavClick: function onSubNavClick(group, child, options) {
         var selection = { group: group, id: child, options : options};
         this.setState({ selected: selection });
         this.dispatchSelection(selection);
     },
 
     onClick: function onClick(id, options) {
-        if(this.props.selectedId){
-            delete(this.props.selectedId);
-        }
         var selection = { id: id, options : options };
         this.setState({ selected: selection });
         this.dispatchSelection(selection);
