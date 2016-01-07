@@ -11,12 +11,12 @@
     "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext.git"
   },
   "dependencies": {
-    "classnames": "^1.2.0",
-    "object-assign": "^2.0.0",
-    "object-traverse": "^1.1.1",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-addons-pure-render-mixin" : "^0.14.6",
+    "classnames": ">=1.2.0",
+    "object-assign": ">=2.0.0",
+    "object-traverse": ">=1.1.1",
+    "react": "0.14.0 - 0.14.9999",
+    "react-dom": "0.14.0 - 0.14.9999",
+    "react-addons-pure-render-mixin" : "0.14.0 - 0.14.9999",
     "lodash" : "*"
   },
   "keywords": [

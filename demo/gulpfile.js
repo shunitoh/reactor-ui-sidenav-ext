@@ -32,11 +32,7 @@ gulp.task('build:app', function() {
         entries : ['./src/app.jsx'],
         debug : true
     })
-    .transform(
-        babelify.configure({
-            sourceMaps : true,
-        })
-    )
+    .transform(babelify , { presets : ["es2015", "react"]})
     .bundle()
     .pipe($.plumber({errorHandler:handleErrors}))
     .pipe(source('bundle.js'))
@@ -50,7 +46,6 @@ gulp.task('build:styles:css', function() {
   ];
   return gulp.src(css)
     .pipe($.cssmin())
-    .pipe($.minifyCss())
     .pipe($.rename({suffix: '.min'}))
     .pipe(gulp.dest('./build/styles/'));
 });

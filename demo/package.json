@@ -12,8 +12,8 @@
     "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext"
   },
   "dependencies": {
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
+    "react": "0.14.0 - 0.14.9999",
+    "react-dom": "0.14.0 - 0.14.9999",
     "reactor-ui-sidenav-ext": "*"
   },
   "devDependencies": {
@@ -25,7 +25,9 @@
     "del": "*",
     "run-sequence": "*",
     "vinyl-source-stream": "*",
-    "babelify": "*",
+    "babelify": "7.2.0",
+    "babel-preset-es2015" : "*",
+    "babel-preset-react"  : "*",
     "browserify": "*",
     "source": "*",
     "express": "*",
@@ -33,7 +35,6 @@
     "underscore": "*",
     "serve-favicon": "*",
     "gulp-csscomb": "*",
-    "gulp-minify-css": "*",
     "gulp-cssmin": "*",
     "gulp-rename": "*",
     "consolidate": "*"
