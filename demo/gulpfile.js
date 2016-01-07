@@ -29,11 +29,12 @@ gulp.task('build:clean',
 
 gulp.task('build:app', function() {
     return browserify({
-        entries : ['./src/app.jsx']
+        entries : ['./src/app.jsx'],
+        debug : true
     })
     .transform(
         babelify.configure({
-            sourceMaps : true
+            sourceMaps : true,
         })
     )
     .bundle()

@@ -29,14 +29,20 @@ var IconTextSchemeMixin = {
                 propsText = this.props.nav.text;
             }
         }
-
+        var id = (this.props.nav) ? this.props.nav.id : (this.props.id) ? this.props.id : null;
+        var optionByIcon = (id) ? { style: { paddingRight: 10 }, className: propsIcon, key : id + '-icon' } : { style: { paddingRight: 10 }, className: propsIcon };
         if (propsIcon) {
-            icon = React.createElement("span", { style: { paddingRight: 10 }, className: propsIcon });
+            icon = React.createElement(
+                "span", 
+                optionByIcon
+            );
         }
+
+        var optionByText = (id) ? { key : id + '-text' } : null;
         if (propsText) {
             text = React.createElement(
                 "span",
-                null,
+                optionByText,
                 propsText
             );
         }

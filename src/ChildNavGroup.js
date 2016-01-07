@@ -9,7 +9,7 @@ var React = require("react");
 var Nav = require("./ChildNav");
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
 var cn = require("classnames");
-var PureRenderMixin = require("react/addons").addons.PureRenderMixin;
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 var existCheckByNavId = function(parent, searchKey) {
     if(parent && parent.id === searchKey){
         return true;
@@ -111,15 +111,15 @@ var ChildNavGroup = React.createClass({
 
         return React.createElement(
             "div",
-            { className: groupclassNameByClicked },
+            { className: groupclassNameByClicked, key : this.props.nav.id },
             React.createElement(
                 "div",
-                { onClick: this.onClick, className: groupclassName },
+                { onClick: this.onClick, className: groupclassName, key : this.props.nav.id + '-group' },
                 this.createIconTextContent()
             ),
             React.createElement(
                 "div",
-                { ref: "cont", style: style, className: itemsClassnames },
+                { ref: "cont", style: style, className: itemsClassnames, key : this.props.nav.id + '-items' },
                 this.buildChildren()
             )
         );

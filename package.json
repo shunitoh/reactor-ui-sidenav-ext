@@ -1,6 +1,6 @@
 {
   "name": "reactor-ui-sidenav-ext",
-  "version": "0.0.9",
+  "version": "0.2.0",
   "description": "extends reactor-ui of sidenav",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
     "classnames": "^1.2.0",
     "object-assign": "^2.0.0",
     "object-traverse": "^1.1.1",
-    "react": "^0.13.3",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-addons-pure-render-mixin" : "^0.14.6",
     "lodash" : "*"
   },
   "keywords": [

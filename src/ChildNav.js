@@ -3,7 +3,7 @@
 
 var React = require("react");
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
-var PureRenderMixin = require("react/addons").addons.PureRenderMixin;
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 var cn = require("classnames");
 
 var isActive = function isActive(props) {
@@ -49,7 +49,6 @@ var ChildNav = React.createClass({
                 classNames = cn("rui-child-nav-group-item", {"rui-snav-active": false});
             }
         }
-
         return React.createElement(
             "div",
             { onClick: this.itemClicked, className: classNames },
