@@ -32,19 +32,14 @@ var IconTextSchemeMixin = {
         var id = (this.props.nav) ? this.props.nav.id : (this.props.id) ? this.props.id : null;
         var optionByIcon = (id) ? { style: { paddingRight: 10 }, className: propsIcon, key : id + '-icon' } : { style: { paddingRight: 10 }, className: propsIcon };
         if (propsIcon) {
-            icon = React.createElement(
-                "span", 
-                optionByIcon
-            );
+            icon = <span {...optionByIcon} />;
         }
 
         var optionByText = (id) ? { key : id + '-text' } : null;
         if (propsText) {
-            text = React.createElement(
-                "span",
-                optionByText,
-                propsText
-            );
+            text = <span {...optionByText}>
+                {propsText}
+            </span>;
         }
 
         if (style === "it") {

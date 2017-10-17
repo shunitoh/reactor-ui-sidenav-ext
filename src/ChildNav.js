@@ -1,7 +1,10 @@
 
 "use strict";
 
+var PropTypes = require('prop-types');
+
 var React = require("react");
+var createReactClass = require('create-react-class');
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
 var PureRenderMixin = require('react-addons-pure-render-mixin');
 var cn = require("classnames");
@@ -13,13 +16,13 @@ var isActive = function isActive(props) {
 /**
  * The Single ChildNav Element
  */
-var ChildNav = React.createClass({
+var ChildNav = createReactClass({
     displayName: "ChildNav",
 
     propTypes: {
 
-        id: React.PropTypes.string.isRequired,
-        text: React.PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
 
     },
 
@@ -49,10 +52,10 @@ var ChildNav = React.createClass({
                 classNames = cn("rui-child-nav-group-item", {"rui-snav-active": false});
             }
         }
-        return React.createElement(
-            "div",
-            { onClick: this.itemClicked, className: classNames },
-            this.createIconTextContent()
+        return (
+            <div onClick={this.itemClicked} className={classNames}>
+                {this.createIconTextContent()}
+            </div>
         );
     }
 

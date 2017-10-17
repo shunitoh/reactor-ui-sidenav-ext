@@ -6,6 +6,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React  = require("react");
+var createReactClass = require('create-react-class');
 var lodash = require("lodash");
 var Nav = require("./Nav");
 var ChildNavGroup = require("./ChildNavGroup");
@@ -34,7 +35,7 @@ var isActive = function isActive(props) {
     return res;
 };
 
-var NavGroup = React.createClass({
+var NavGroup = createReactClass({
     displayName: "NavGroup",
 
     mixins: [IconTextSchemeMixin, PureRenderMixin],
@@ -58,14 +59,20 @@ var NavGroup = React.createClass({
                     return;
                 }
                 if (nav.navlist) {
-                    return React.createElement(
-                        ChildNavGroup, 
-                        { key : nav.id, selectedId : _this.props.selectedId, selected: _this.state.selected, onClick: _this.onChildNavClick, anotherAction : _this.onSubNavClick, nav: nav, words : _this.props.words }
+                    return (
+                        <ChildNavGroup
+                            key={nav.id}
+                            selectedId={_this.props.selectedId}
+                            selected={_this.state.selected}
+                            onClick={_this.onChildNavClick}
+                            anotherAction={_this.onSubNavClick}
+                            nav={nav}
+                            words={_this.props.words} />
                     );
                 } else {
-                    return React.createElement(
-                        Nav, 
-                        _extends({ key : nav.id}, {selectedId : _this.props.selectedId}, {selected: _this.state.selected}, nav, {onClick: _this.onSubNavClick}, {group : nav.id}, {words : _this.props.words})
+                    return (
+                        <Nav
+                            {..._extends({ key : nav.id}, {selectedId : _this.props.selectedId}, {selected: _this.state.selected}, nav, {onClick: _this.onSubNavClick}, {group : nav.id}, {words : _this.props.words})} />
                     );
                 }
             });
@@ -138,19 +145,22 @@ var NavGroup = React.createClass({
             }
         }
 
-        return React.createElement(
-            "div",
-            { className: groupclassNameByClicked, key : this.props.nav.id },
-            React.createElement(
-                "div",
-                { onClick: this.onClick, className: groupclassName, key : this.props.nav.id + '-group' },
-                this.createIconTextContent()
-            ),
-            React.createElement(
-                "div",
-                { ref: "cont", style: style, className: itemsClassnames, key : this.props.nav.id + '-items' },
-                this.buildChildren()
-            )
+        return (
+            <div className={groupclassNameByClicked} key={this.props.nav.id}>
+                <div
+                    onClick={this.onClick}
+                    className={groupclassName}
+                    key={this.props.nav.id + '-group'}>
+                    {this.createIconTextContent()}
+                </div>
+                <div
+                    ref="cont"
+                    style={style}
+                    className={itemsClassnames}
+                    key={this.props.nav.id + '-items'}>
+                    {this.buildChildren()}
+                </div>
+            </div>
         );
     }
 });

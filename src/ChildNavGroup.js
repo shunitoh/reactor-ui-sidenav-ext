@@ -6,6 +6,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require("react");
+var createReactClass = require('create-react-class');
 var Nav = require("./ChildNav");
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
 var cn = require("classnames");
@@ -32,7 +33,7 @@ var isActive = function isActive(props) {
     return res;
 };
 
-var ChildNavGroup = React.createClass({
+var ChildNavGroup = createReactClass({
     displayName: "ChildNavGroup",
 
     mixins: [IconTextSchemeMixin, PureRenderMixin],
@@ -50,7 +51,10 @@ var ChildNavGroup = React.createClass({
                 if(nav.active === false){
                     return;
                 }
-                return React.createElement(Nav, _extends({ key : nav.id, selectedId : _this.props.selectedId, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav));
+                return (
+                    <Nav
+                        {..._extends({ key : nav.id, selectedId : _this.props.selectedId, selected: _this.state.selected, onClick: _this.onSubNavClick, words : _this.props.words }, nav)} />
+                );
             });
         } else {
             return this.props.children;
@@ -109,19 +113,22 @@ var ChildNavGroup = React.createClass({
             }
         }
 
-        return React.createElement(
-            "div",
-            { className: groupclassNameByClicked, key : this.props.nav.id },
-            React.createElement(
-                "div",
-                { onClick: this.onClick, className: groupclassName, key : this.props.nav.id + '-group' },
-                this.createIconTextContent()
-            ),
-            React.createElement(
-                "div",
-                { ref: "cont", style: style, className: itemsClassnames, key : this.props.nav.id + '-items' },
-                this.buildChildren()
-            )
+        return (
+            <div className={groupclassNameByClicked} key={this.props.nav.id}>
+                <div
+                    onClick={this.onClick}
+                    className={groupclassName}
+                    key={this.props.nav.id + '-group'}>
+                    {this.createIconTextContent()}
+                </div>
+                <div
+                    ref="cont"
+                    style={style}
+                    className={itemsClassnames}
+                    key={this.props.nav.id + '-items'}>
+                    {this.buildChildren()}
+                </div>
+            </div>
         );
     }
 });

@@ -1,10 +1,12 @@
 
 "use strict";
 
-var React = require("react");
-var IconTextSchemeMixin = require("./IconTextSchemeMixin");
-var PureRenderMixin = require('react-addons-pure-render-mixin');
-var cn = require("classnames");
+import PropTypes from 'prop-types';
+import React from 'react';
+import createReactClass from 'create-react-class';
+import IconTextSchemeMixin from "./IconTextSchemeMixin";
+import PureRenderMixin from  'react-addons-pure-render-mixin';
+import cn from 'classnames';
 
 var isActive = function isActive(props) {
     return props.selected.id === props.id;// && props.selected.group === props.group;
@@ -13,50 +15,45 @@ var isActive = function isActive(props) {
 /**
  * The Single Nav Element
  */
-var Nav = React.createClass({
-    displayName: "Nav",
+export default class Nav {
 
-    propTypes: {
+  mixins = [IconTextSchemeMixin, PureRenderMixin];
 
-        id: React.PropTypes.string.isRequired,
-        text: React.PropTypes.string.isRequired
+  getInitialState() {
+    return { active: isActive(this.props) };
+  }
 
-    },
+  componentWillReceiveProps(nextProps) {
+    this.setState({ active: isActive(nextProps) });
+  }
 
-    mixins: [IconTextSchemeMixin, PureRenderMixin],
+  itemClicked() {
+    if (this.props.onClick) {
+      this.props.onClick(this.props.id, this.props.options);
+    }
+  }
 
-    getInitialState: function getInitialState() {
-        return { active: isActive(this.props) };
-    },
-
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-        this.setState({ active: isActive(nextProps) });
-    },
-
-    itemClicked: function itemClicked() {
-
-        if (this.props.onClick) {
-            this.props.onClick(this.props.id, this.props.options);
-        }
-    },
-
-    render: function render() {
-        var classNames = cn("rui-snav-item", { "rui-snav-active": this.state.active });
-        if(this.props.selectedId){
-            if(this.props.selectedId === this.props.id){
-                classNames = cn("rui-snav-item", {"rui-snav-active": true});
-            }else{
-                classNames = cn("rui-snav-item", {"rui-snav-active": false});
-            }
-        }
-
-        return React.createElement(
-            "div",
-            { onClick: this.itemClicked, className: classNames, key : this.props.id },
-            this.createIconTextContent()
-        );
+  render() {
+    var classNames = cn("rui-snav-item", { "rui-snav-active": this.state.active });
+    if(this.props.selectedId){
+      if(this.props.selectedId === this.props.id){
+        classNames = cn("rui-snav-item", {"rui-snav-active": true});
+      }else{
+        classNames = cn("rui-snav-item", {"rui-snav-active": false});
+      }
     }
 
-});
+    return (
+      <div onClick={this.itemClicked} className={classNames} key={this.props.id}>
+        {this.createIconTextContent()}
+      </div>
+    );
+  }
+}
+
+Nav.propTypes = {
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
 
 module.exports = Nav;

@@ -1,8 +1,8 @@
 {
   "name": "reactor-ui-sidenav-ext",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "extends reactor-ui of sidenav",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,12 +12,15 @@
   },
   "dependencies": {
     "classnames": ">=1.2.0",
+    "create-react-class": "^15.6.2",
+    "lodash": "4.17.4",
     "object-assign": ">=2.0.0",
     "object-traverse": ">=1.1.1",
-    "react": "0.14.0 - 0.14.9999",
-    "react-dom": "0.14.0 - 0.14.9999",
-    "react-addons-pure-render-mixin" : "0.14.0 - 0.14.9999",
-    "lodash" : "*"
+    "prop-types": "^15.6.0",
+    "react": "^15.6.2",
+    "react-addons-pure-render-mixin": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "webpack-dev-server": "*"
   },
   "keywords": [
     "react",
@@ -31,5 +34,13 @@
   "bugs": {
     "url": "https://github.com/shunitoh/reactor-ui-sidenav-ext/issues"
   },
-  "homepage": "https://github.com/shunitoh/reactor-ui-sidenav-ext#readme"
+  "homepage": "https://github.com/shunitoh/reactor-ui-sidenav-ext#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^3.7.1"
+  }
 }

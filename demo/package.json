@@ -12,9 +12,9 @@
     "url": "git+https://github.com/shunitoh/reactor-ui-sidenav-ext"
   },
   "dependencies": {
-    "react": "0.14.0 - 0.14.9999",
-    "react-dom": "0.14.0 - 0.14.9999",
-    "reactor-ui-sidenav-ext": "*"
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "reactor-ui-sidenav-ext": "file:../../reactor-ui-sidenav-ext"
   },
   "devDependencies": {
     "gulp": "*",
