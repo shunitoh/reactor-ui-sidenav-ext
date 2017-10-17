@@ -1,7 +1,7 @@
 import React        from 'react';
 import SideNavData  from '../constants/variables/SideNav.json';
 import WordsData    from '../constants/variables/Words.json';
-import { SideNav }  from 'reactor-ui-sidenav-ext';
+import {SideNav}    from 'reactor-ui-sidenav-ext';
 
 export default class App extends React.Component {
     constructor(props) {

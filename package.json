@@ -1,11 +1,11 @@
 {
   "name": "reactor-ui-sidenav-ext",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "extends reactor-ui of sidenav",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/webpack"
+    "build": "./node_modules/babel-cli/lib/babel/index.js src/ -d dist/"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,7 @@
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-addons-pure-render-mixin": "^15.6.2",
-    "react-dom": "^15.6.2",
-    "webpack-dev-server": "*"
+    "react-dom": "^15.6.2"
   },
   "keywords": [
     "react",
@@ -37,8 +36,10 @@
   },
   "homepage": "https://github.com/shunitoh/reactor-ui-sidenav-ext#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",

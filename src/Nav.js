@@ -1,11 +1,6 @@
-
-"use strict";
-
 import PropTypes from 'prop-types';
 import React from 'react';
-import createReactClass from 'create-react-class';
 import IconTextSchemeMixin from "./IconTextSchemeMixin";
-import PureRenderMixin from  'react-addons-pure-render-mixin';
 import cn from 'classnames';
 
 var isActive = function isActive(props) {
@@ -15,12 +10,12 @@ var isActive = function isActive(props) {
 /**
  * The Single Nav Element
  */
-export default class Nav {
+export default class Nav extends React.Component {
 
-  mixins = [IconTextSchemeMixin, PureRenderMixin];
-
-  getInitialState() {
-    return { active: isActive(this.props) };
+  constructor(props){
+    super(props);
+    this.state = { active: isActive(this.props) };
+  
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,8 +39,8 @@ export default class Nav {
     }
 
     return (
-      <div onClick={this.itemClicked} className={classNames} key={this.props.id}>
-        {this.createIconTextContent()}
+      <div onClick={this.itemClicked.bind(this)} className={classNames} key={this.props.id}>
+        <IconTextSchemeMixin {...this.props} />
       </div>
     );
   }

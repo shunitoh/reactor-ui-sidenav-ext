@@ -4,9 +4,7 @@
 var PropTypes = require('prop-types');
 
 var React = require("react");
-var createReactClass = require('create-react-class');
 var IconTextSchemeMixin = require("./IconTextSchemeMixin");
-var PureRenderMixin = require('react-addons-pure-render-mixin');
 var cn = require("classnames");
 
 var isActive = function isActive(props) {
@@ -16,34 +14,23 @@ var isActive = function isActive(props) {
 /**
  * The Single ChildNav Element
  */
-var ChildNav = createReactClass({
-    displayName: "ChildNav",
+export default class ChildNav extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { active: isActive(this.props) };
+    }
 
-    propTypes: {
-
-        id: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired
-
-    },
-
-    mixins: [IconTextSchemeMixin, PureRenderMixin],
-
-    getInitialState: function getInitialState() {
-        return { active: isActive(this.props) };
-    },
-
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps) {
         this.setState({ active: isActive(nextProps) });
-    },
+    }
 
-    itemClicked: function itemClicked() {
-
+    itemClicked() {
         if (this.props.onClick) {
             this.props.onClick(this.props.id, this.props.options);
         }
-    },
+    };
 
-    render: function render() {
+    render() {
         var classNames = cn("rui-child-nav-group-item", { "rui-snav-active": this.state.active });
         if(this.props.selectedId){
             if(this.props.selectedId === this.props.id){
@@ -53,12 +40,14 @@ var ChildNav = createReactClass({
             }
         }
         return (
-            <div onClick={this.itemClicked} className={classNames}>
-                {this.createIconTextContent()}
+            <div onClick={this.itemClicked.bind(this)} className={classNames}>
+                <IconTextSchemeMixin {...this.props} />
             </div>
         );
     }
+}
 
-});
-
-module.exports = ChildNav;
+ChildNav.propTypes = {
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
