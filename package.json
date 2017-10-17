@@ -1,10 +1,11 @@
 {
   "name": "reactor-ui-sidenav-ext",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "extends reactor-ui of sidenav",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
